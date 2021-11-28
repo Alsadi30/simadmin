@@ -7,7 +7,7 @@
 	--section-color: #008000;
 	--nav-color: #008000;
 	--nav-text-color: #ffffff;
-	--font-color: #424244;
+	--font-color: #000000;
 	--brand-color: #424242;
 	--font-color-secondary: #666666;
 	--border-color: #efefef;
@@ -16,7 +16,7 @@
 
 	--font-size-brand: 1.5rem;
 	--font-size-text: 1rem;
-	--font-size-title-sm: 1.25rem;
+	--font-size-title-sm: 1.2rem;
 	--font-size-title-md: 1.5rem;
 	--font-size-title-lg: 1.75rem;
 
@@ -34,6 +34,8 @@
 body {
 	width: 100%;
 	min-height: 100vh;
+	margin: 0;
+	padding:0;
 	font-family: var(--text-font-family);
 	font-size: var(--font-size-text);
 	color: var(--font-color);
@@ -67,9 +69,21 @@ p {
 	color: var(--font-color-secondary);
 	line-height: 1.2;
 }
+a{
+	text-decoration: none;
+	color: var(--nav-text-color);
+	font-size: var(--font-size-text);
+	font-family: 'Raleway', sans-serif;
+	
+}
 
 
-
+.loading{
+	display:flex;
+	align-content:center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
 
 /* BEM - Navigation Block */
 .nav {
@@ -107,9 +121,30 @@ p {
 .navbar{
     display: flex;
     width: 15%;
+	height:100vh;
     flex-direction: column;
     background-color: var(--nav-color);
     color: var(--nav-text-color)
+}
+
+.nav-item{
+	padding: 10px 5px 5px 20px ;
+	border-top: 2px solid #056100;
+	background-color: #4a8d47;
+	
+}
+
+.active{
+	padding: 10px 5px 5px 20px ;
+	border-top: 2px solid #056100;
+	background-color: #34b42f;
+}
+.nav-item:hover{
+	background-color: #033a01;
+}
+
+.nav-item:active{
+	background-color:#eafdd0;
 }
 
 .dash{
@@ -118,9 +153,180 @@ p {
     flex-direction: column;
 }
 
+.dashboard-title{
+	font-weight: 600;
+	background-color: var(--nav-color);
+	color: var(--nav-text-color);
+	text-align: center;
+	margin: 5px;
+	padding:8px;
+	border-radius: 3px;
+}
+
+table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.table-1{
+	margin: 10px 5px 5px 5px;
+	border-spacing:0px;
+}
+
+.table-raw{
+	border: 1px solid rgb(161, 161, 161);
+	border-radius: 4px;
+	padding: 5px;
+}
+
+.col{
+	border: 1px solid rgb(221, 221, 221);
+	border-radius: 1px;
+	padding:3px 5px 5px 15px;
+	text-align:start;
+	font-size: var(--font-size-text);
+	font-weight: 700;
+}
+.col:hover{
+	background-color: #e4e4e4;
+}
+
+button{
+	color: rgb(255, 255, 255);
+	background-color: #666666;
+	font-size: medium;
+	border: none;
+	padding: 5px 10px;
+	box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.25);
+	
+}
+
+button:hover{
+	background-color:rgb(201, 171, 171);
+	cursor: pointer;
+}
+
+button:active{
+	background-color:rgb(129, 74, 74)
+}
+
+.active-button{
+	background-color: #004b00;
+}
+
+.delete-button{
+	background-color:#c21451;
+}
+.dawnload-button{
+	background-color:rgb(131, 131, 131);
+}
+
+.form-group{
+	display: flex;
+	flex-direction: column;
+	width:90%;
+	margin:auto;
+	padding:20px 10px 3px 10px;
+	font-weight: 600;
+}
+
+.form-control{
+	padding:10px 10px 10px 5px;
+	margin:1px;
+}
+
+.submit-button{
+	margin: 15px 5px 20px 55px;
+	background-color:green;
+}
+
+.tb-head{
+	border: 1px solid rgb(221, 221, 221);
+	border-radius: 1px;
+	padding:3px 5px 5px 15px;
+	background-color: #ffffff;
+	text-align:start;
+	font-size: var(--font-size-text);
+	font-weight: 700;
+}
+
+.btn {
+	color:black;
+	background-color:rgb(218, 218, 218);
+}
+
+.re-grp{
+	display:flex
+}
+
+.re-lab{
+	background-color:green;
+	width:90px;
+	margin:10px 0px 10px 10px;
+	padding:10px;
+	color:white;
+	text-align:center;
+}
+
+.re-inp{
+  width:130px;
+  height:40px;
+  margin:10px 10px 10px 0px;
+}
+
+select{
+	padding:10px;
+	border-radius:5px;
+}
 
 
+.logbody{
+	display:flex;
+	background-color:rgb(214, 214, 214);
+	justify-content:center;
+	align-items:center;
+	height:100vh;
+}
 
+.logform{
+	background-color:white;
+	height:60vh;
+    border-radius:10px;
+	transition:.2s;
+	transition-timing-function: linear;
+}
+.logform:hover{
+	height:58vh;
+	padding:0px 10px 0px 10px;
+}
+
+.log{
+	padding:10px 80px 10px 3px;
+	
+}
+
+.log-head{
+	font-weight:700;
+	color:rgb(12, 12, 53);
+	padding:20px 10px 0px 35px;
+}
+.forhed{
+	padding-top:0px;
+}
+
+.log-button{
+	padding:6px;
+	margin:10px 20px 20px 25px;
+	background-color: rgb(26, 26, 26)
+}
+
+.log-error{
+	padding:5px;
+	color:red;
+}
 
 
 /* BEM Table */
@@ -231,7 +437,7 @@ p {
 }
 
 .__shadow--lg {
-	box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.25);
 	-moz-box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.25);
 	-webkit-box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.25);
 }

@@ -8,6 +8,10 @@ import setAuthToken from './utils/setAuthToken'
 import jwtDecode from 'jwt-decode'
 import Types from './store/actions/type'
 import './assets/styles/style.css';
+import { BrowserRouter } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const token = localStorage.getItem('auth_token')
 
@@ -27,13 +31,14 @@ if(token){
 
 
 ReactDOM.render(
-
+  <BrowserRouter>
   <Provider store={store}>
   <React.StrictMode>
-   <App />
+        <App />
+        <ToastContainer/>
    </React.StrictMode>
- </Provider>,
-
+ </Provider>
+ </BrowserRouter>,
   document.getElementById('root')
 );
 

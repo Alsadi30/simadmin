@@ -21,7 +21,7 @@ const loginReducer =(state=init,action) =>{
         case Types.ME_ERROR : {
             return {
                 ...state,
-                error: action.payload.error
+                error: action.payload
             }
         }
         default: return state

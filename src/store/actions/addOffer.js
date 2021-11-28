@@ -1,42 +1,42 @@
 import axios from 'axios'
 import Types from './type'
-import URL from '../serverUrl'
 import { toast } from 'react-toastify';
+import URL from '../serverUrl'
 
-
-export const addSim = (simdata) => (dispatch) => {
-  axios.post(`${URL}/api/sim/create`, simdata)
+export const addOffer = (offerData) => (dispatch) => {
+    axios.post(`${URL}/api/offers/create`, offerData)
         .then(res => {
-          toast.success("Sim Added Successfully !", {
+          toast.success(" Offer Added Successfully !", {
             position: toast.POSITION.TOP_CENTER
           });
         })
         .catch(e => {
-          toast.error(`${e.message}`, {
+           toast.error(`${e.message}`, {
             position: toast.POSITION.TOP_CENTER,
             theme: "colored"
           });
-          
        })
 }
 
 
-export const getSims = (userid) => (dispatch) => {
-  axios.get(`${URL}/api/sim/${userid}`)
+
+
+export const getOffers = () => (dispatch) => {
+  axios.get(`${URL}/api/offers`)
     .then(res => {
       dispatch({
-        type:Types.SET_SIMS,
+        type:Types.GET_OFFERS,
         payload: {
-          sims: res.data.sims
+          offers:res.data.offers
         }
       })
      
     })
     .catch(e => {
       dispatch({
-        type:Types.SIMS_ERROR,
+        type:Types.OFFERS_ERROR,
         payload: {
-          error:e
+          error:e.message
         }
       })
       toast.error(`${e.message}`, {
@@ -49,16 +49,10 @@ export const getSims = (userid) => (dispatch) => {
 
 
 
-export const updateSimAcStatue = (id) => (dispatch) => {
-  axios.post(`${URL}/api/sim/update/${id}`)
+export const deleteOffer  = (id) => (dispatch) => {
+  axios.delete(`${URL}/api/offers/delete/${id}`)
     .then(res => {
-        console.log(res.data)
-          dispatch({
-              type: Types.UPDATE_SIM_AC_STATUE,
-              payload: { sim:res.data.updatedSim }
-         })
-
-         toast.success("Sim Status Updated Successfully !", {
+         toast.success("Order Deleted Successfully !", {
           position: toast.POSITION.TOP_CENTER
         });
       
@@ -66,7 +60,7 @@ export const updateSimAcStatue = (id) => (dispatch) => {
       .catch(e => {
           console.log(e.message)
           dispatch({
-              type:Types.SIMS_ERROR,
+              type:Types.OFFERS_ERROR,
               payload:{
                   error:e.message
               }

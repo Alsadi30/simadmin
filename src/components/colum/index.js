@@ -3,7 +3,7 @@
 
 const Col = ({val}) => {
     return (
-        <div className='col'>{val}</div>
+        <td className='col'>{val}</td>
     )
 }
 

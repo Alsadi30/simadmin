@@ -1,22 +1,30 @@
 import Types from '../actions/type'
 
-
-const init = {
-    attachments:[],
-    errors: {},
-    isLoadingg:true
+let init = {
+    sims: [],
+    error: {},
+    isLoading:true
 }
 
-const simsReducer =(state=init,action) =>{
-    switch(action.type){
-        case Types.SET_ATTACHMENTS :{
+const simReducer = (state = init, action) => {
+    switch (action.type) {
+        case Types.SET_SIMS: {
             return {
-                attachments: action.payload.attachments,
+                ...state,
+                sims: action.payload.sims,
                 error: {},
-                isLoding:false
+                isLoading: false
             }
         }
-        case Types.ATTACHMENTS_ERROR : {
+        case Types.UPDATE_SIM_AC_STATUE :{
+            return {
+                ...state,
+                sims: state.sims.filter(sim => sim.id === action.payload.sim.id?action.payload.sim:sim) ,
+                error: {},
+                isLoading:false
+            }
+        }
+        case Types.SIMS_ERROR: {
             return {
                 ...state,
                 error: action.payload.error
@@ -27,4 +35,4 @@ const simsReducer =(state=init,action) =>{
 }
 
 
-export default simsReducer
+export default simReducer

@@ -15,7 +15,7 @@ const Login = () => {
     const dispatch = useDispatch()
     let navigate = useNavigate();
     
-    // const error = useSelector((state)=>state.loginreducer.error)
+    const {error} = useSelector(state=>state.loginReducer)
 
     const [formData,setFormData] = useState(initialState)
 
@@ -30,22 +30,22 @@ const Login = () => {
 }    
     
     return (
-        <div>
-            <form onSubmit={ handleSubmit }>
-
-                <div className="form-group">
-                  <label htmlFor="name">Name</label>
+        <div className='logbody'>
+            <form className='logform __shadow--lg' onSubmit={ handleSubmit }>
+            <h3  className="log-head" > Phone Care (Sim Service)</h3>
+                <div className="form-group ">
+                  <label  className="form-control forhed"htmlFor="name">Name</label>
                     <input type="text" 
-                        className="form-control" name="name" id="name" aria-describedby="helpId" placeholder="Enter Admin Name" onChange={handleChange}/>
-                  <small id="helpId" className="form-text text-muted">Help text</small>
+                        className="form-control log" name="name" id="name" aria-describedby="helpId" placeholder="Enter Admin Name" onChange={handleChange}/>
+                    {error.error && <small id="helpId" className="log-error">{error.error}</small>}
                 </div>
                 <div className="form-group">
-                  <label htmlFor="Password">Password</label>
+                  <label  className="form-control" htmlFor="Password">Password</label>
                   <input type="password"
                     className="form-control" name="password" id="password" aria-describedby="passId" placeholder="Enter Admin Password" onChange={handleChange}/>
-                  <small id="passId" className="form-text text-muted">Help text</small>
+                    { error.error?  <small id="passId" className="log-error">{error.error}</small> :''}
                 </div>
-                <button>
+                <button className='log-button'>
                     Submit
                 </button>
             </form>

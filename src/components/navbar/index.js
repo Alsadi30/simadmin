@@ -5,11 +5,11 @@ const Navbar = () => {
     
     return (
    
-        <div className='' >
-            <NavItem itemnames={['Dashboard', "Add Sim","Add Offer" , "Add Thumbnail" , "All User" , "Report"]} />
+        <>
+            <NavItem itemnames={['Dashboard', "Add Sim","Add Offer" , "All User" , "Report"]} />
             <Outlet/>
     
-            </div>
+            </>
     )
 }
 

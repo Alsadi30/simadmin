@@ -1,26 +1,27 @@
 import {Link} from "react-router-dom"
+import {useState} from 'react'
 
+const NavItem = ({ itemnames }) => {
+  
+  let [active,setActive] = useState('')
 
-const NavItem = ({itemnames}) => {
   return (
-    <div>
+    <>
       {itemnames.map(itemname =>{
         let item = itemname.toLowerCase().split(' ').join('')
-     return (<Link 
-        // style={({ isActive }) => ({
-        //   // display: "block",
-        //   // margin: "1rem 0",
-        //   color: isActive ? "red" : ""
-        // })}
+        
+        return (
+            <Link key={item} className={`${item === active ? "active" : "nav-item"}`} onClick={() => setActive(item)}
         to={`/${item}`}
       //   key={Math.random()}
       >
       {itemname}
-      </Link>)
+            </Link>
+  )
       }
       )
       }
-      </div>
+      </>
     )
 }
 

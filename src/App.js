@@ -18,6 +18,7 @@ import {useSelector,useDispatch} from 'react-redux'
 import { logout } from "./store/actions/loginAction"
 import jwtDecode from "jwt-decode"
 import Signup from "./pages/signup";
+import DeleteSim from "./pages/deleteSim";
 
 
 function App() {
@@ -68,7 +69,7 @@ function App() {
         {location.pathname === '/login' ? null :  <Navbar />} 
                  </div>
           <Routes>
-          <Route path='signinng' element={<Signup />} />
+          
           <Route path='login' element={<Login />} />
 
             <Route path='/' element={<Home isLogin={isAuthenticated} Comp={Dashboard} />} />
@@ -80,7 +81,7 @@ function App() {
              <Route path='alluser/:id' element={<SingleUserRoute isLogin={isAuthenticated} comp={'alluser/:id'}/> } />
              <Route path='report' element={<ReportRoute isLoding={isLoding} isLogin={isAuthenticated} comp={'report'}/> }/>
              <Route path='reports/:id' element={<SingleReportRoute isLogin={isAuthenticated} comp={'reports/:id'}/> } />
-         
+             <Route path='/dilit/dilit' element={<Delit isLogin={isAuthenticated} comp={'/dilit/dilit'}/> } />
             
             <Route path='/:pagename' element={<PageNotFound/>} />
             </Routes>
@@ -142,6 +143,14 @@ const SingleReportRoute = ({ isLogin,isLoding, comp }) => {
  
   return isLogin && !isLoding ?<IdReport path={`/${comp}`} />  : <Navigate to="/login" /> 
 }
+
+
+const Delit = ({ isLogin,isLoding, comp }) => {
+ 
+  return isLogin && !isLoding ?<DeleteSim path={`/${comp}`} />  : <Navigate to="/login" /> 
+}
+
+
 
 
 

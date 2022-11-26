@@ -11,8 +11,11 @@ const OfferRow = ({ offer }) => {
     const dispatch = useDispatch()
 
     const handleDelete = () => {
+       let confirmed = window.confirm("Are you sure to delete it?")
+       if(confirmed){
         dispatch(deleteOffer(offer.id))
     }
+}
 
   
     return (

@@ -45,6 +45,7 @@ const IdReport = () => {
                         <option value='Vodafone'>Vodafone</option>
                         <option value='Wind'>Wind</option>
                         <option value='Very'>Very</option>
+                        <option value="Kena">Kena</option>
                     </select>
                 </div>
                 <div className='re-grp'>
@@ -62,7 +63,8 @@ const IdReport = () => {
             <table className='table-1'>
             <thead className='table__thead'>
                 <tr>
-                    <th className='tb-head'>Operator Name</th>
+                    <th className="tb-head"> Sl</th>
+<th className='tb-head'>Operator Name</th>
                     <th className='tb-head'>Sim Number</th>
                     <th className='tb-head'>ICCID</th>
                         <th className='tb-head'>Sales Status</th>
@@ -71,15 +73,16 @@ const IdReport = () => {
                         <th className='tb-head'>Approved At</th>
                         <th className='tb-head'>Activated At</th>
                         <th className='tb-head'>Cost </th>
+                        <th className='tb-head'>Comment</th>
                  </tr>
                 </thead>
                 
             <tbody>
-                    { isLoading ? <div className ='loading' > < ReactLoading className = 'loading' type = 'bubbles' color = '#2C3E50' height = { 60} width = { 60} /> </div > :   filtered.map(sim =>
+                    { isLoading ? <div className ='loading' > < ReactLoading className = 'loading' type = 'bubbles' color = '#2C3E50' height = { 60} width = { 60} /> </div > :   filtered.map((sim,i) =>
                     {
 
                                 return (                          
-                                    <Sim key={sim.id} sim={sim} />
+                                    <Sim key={sim.id} sim={sim} index={i} />
                                 )
                             })}
          </tbody>

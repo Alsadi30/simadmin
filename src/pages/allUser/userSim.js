@@ -28,6 +28,7 @@ const UserSim = () => {
              <table className='table-1'>
                 <thead className='table__thead'>
             <tr>
+                  <th className="tb-head">Sl</th>
                 <th className='tb-head'>Operator Name</th>
                 <th className='tb-head'>Sim Number</th>
                 <th className='tb-head'>ICCID</th>

@@ -60,6 +60,7 @@ const AddSim = () => {
               <option value="Wind">Wind</option>
               <option value="Vodafone">Vodafone</option>
               <option value="Very">Very</option>
+              <option value="Kena">Kena</option> 
             </select>
   
           </div>

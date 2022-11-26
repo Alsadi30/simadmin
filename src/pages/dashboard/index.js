@@ -20,7 +20,10 @@ const Dashboard = () => {
     const {isOLoading, nonAcOrder } = useSelector(state=> state.orderReducer)
     
 
-    let norder = nonAcOrder.filter(order => order.status === true)
+    let norder = nonAcOrder.filter(order => order.status === false)
+    let attachmentreversed =  attachments.sort((a,b) => {
+    return new Date(b.sim.soldAt) - new Date(a.sim.soldAt)
+  })
 
     useEffect(() => {
        
@@ -56,24 +59,26 @@ const Dashboard = () => {
             {isLoadingg ? <div className='loading' ><ReactLoading className='loading' type='bubbles' color='#2C3E50' height={60} width={60} /></div> : <table  className='table-1'>
                 <thead className='table__thead'>
                     <tr>
+                        <th className="tb-head"> Sl </th>
                         <th className='tb-head'>Shop Name</th>
                         <th className='tb-head'>Operator Name</th>
                         <th className='tb-head'>Sim Number</th>
                         <th className='tb-head'>ICCID</th>
+                        <th className="tb-head">Sales Time</th>
                         <th className='tb-head'>Actions</th>
                         <th className='tb-head'>Word File</th>
                         <th className='tb-head'>File 1</th>
                         <th className='tb-head'>File 2</th>
                         <th className='tb-head'>File 3</th>
-                        <th className='tb-head'>File 4</th>
+                        <th className='tb-head'>Comment</th>
                         <th className='tb-head'>Delete Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                {attachments.map(attachment => {
+                { attachmentreversed.map((attachment,i) => {
                     return (
                          
-                        <NewSim key={attachment.id} attachment={attachment} />
+                        <NewSim key={attachment.id} attachment={attachment} index={i} length={attachmentreversed.length} />
                     )
                 })}
 

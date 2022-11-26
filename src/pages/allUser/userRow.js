@@ -11,8 +11,11 @@ const Row = ({ used }) => {
     const dispatch = useDispatch()
 
     const handleDelete = () => {
-        dispatch(deleteUser())
+         let confirmed = window.confirm("Are you sure to delete it?")
+         if(confirmed){
+        dispatch(deleteUser(used.id))
     }
+}
 
     const handleDetails = () => {
         dispatch(getSims(used.id))

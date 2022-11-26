@@ -1,8 +1,24 @@
 import logo from '../../assets/img/logo.png'
 import avatar from '../../assets/img/avatar.png'
+import { useNavigate } from 'react-router-dom'
+import {useState} from 'react'
+import { useDispatch} from 'react-redux'
+import { logout } from '../../store/actions/loginAction'
 
 const Header = () => {
 
+      const [visible,setVisible] = useState(false)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    
+  
+
+
+    const handleClick = () => {
+        dispatch(logout(navigate))
+
+    }  
+ 
 
     return (
         <div className="nav __shadow--lg">
@@ -13,8 +29,13 @@ const Header = () => {
             </div>
             </div>
             <div className='twin'>
+                 <div onClick={()=>setVisible(!visible)}>
                 <img className='imgi' src={avatar} alt='avatar' width='35px' height="35px" />
-                <div className='user_name'>Admin</div>
+             </div>
+             <div className='user_name'>Admin</div>
+               
+                
+               <button style={{display:visible?'':'none'}} className='modal' onClick={handleClick}><small> Logout</small></button>
             </div>
             
             </div>

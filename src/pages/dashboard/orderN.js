@@ -12,8 +12,11 @@ const OrderRow = ({ order }) => {
     }
 
     const handleDelete = () => {
+        let confirmed = window.confirm("Are you sure to delete it?")
+        if(confirmed){
         dispatch(deleteOrder(order.id))
     }
+}
 
   
 

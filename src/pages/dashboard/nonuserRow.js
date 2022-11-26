@@ -11,8 +11,11 @@ const UserRow = ({ user}) => {
     }
 
     const handleDelete = () => {
-        dispatch(deleteUser(user.id))
+       let confirmed = window.confirm("Are you sure to delete it?")
+      if(confirmed){ 
+       dispatch(deleteUser(user.id))
     }
+}
 
     return (
        

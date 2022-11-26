@@ -49,8 +49,8 @@ export const getSims = (userid) => (dispatch) => {
 
 
 
-export const updateSimAcStatue = (id) => (dispatch) => {
-  axios.post(`${URL}/api/sim/update/${id}`)
+export const updateSimAcStatue = (id, modelData) => (dispatch) => {
+  axios.post(`${URL}/api/sim/update/${id}`, modelData)
     .then(res => {
         console.log(res.data)
           dispatch({

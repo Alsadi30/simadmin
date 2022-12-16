@@ -1,9 +1,9 @@
 /* Variables */
 :root {
-	--brand-font-family: 'Montserrat', sans-serif;
-	--text-font-family: 'Lato', sans-serif;
+	--brand-font-family: 'Serif', sans-serif;
+	--text-font-family: 'Helvetica', sans-serif;
 
-	--page-color: #f5f5f5;
+	--page-color: #fff0f0;
 	--section-color: #008000;
 	--nav-color: #008000;
 	--nav-text-color: #ffffff;
@@ -11,7 +11,7 @@
 	--brand-color: #424242;
 	--font-color-secondary: #666666;
 	--border-color: #efefef;
-	--table-stipe-color: #f1f1f1;
+	--table-stipe-color: #ebebeb;
 	--table-stipe-color-success: #eafdd0;
 
 	--font-size-brand: 1.5rem;
@@ -73,7 +73,8 @@ a{
 	text-decoration: none;
 	color: var(--nav-text-color);
 	font-size: var(--font-size-text);
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Helvetica', sans-serif;
+	font-weight: 400;
 	
 }
 
@@ -121,26 +122,28 @@ a{
 .navbar{
     display: flex;
     width: 15%;
-	height:100vh;
+	height:500vh;
     flex-direction: column;
     background-color: var(--nav-color);
     color: var(--nav-text-color)
 }
 
 .nav-item{
-	padding: 10px 5px 5px 20px ;
-	border-top: 2px solid #056100;
-	background-color: #4a8d47;
+	padding: 10px 5px 15px 20px ;
+	border-top: .1px solid #09bd00;
+	background-color: #1bb612;
 	
 }
 
 .active{
-	padding: 10px 5px 5px 20px ;
-	border-top: 2px solid #056100;
-	background-color: #34b42f;
+	padding: 10px 5px 15px 20px ;
+	border: .1 solid #c6ffbf;
+	/* border-top: 2px solid #ffdada; */
+	background-color: #033a01;
 }
 .nav-item:hover{
-	background-color: #033a01;
+	background-color: #059600;
+	box-shadow:  0px 0px 0px 1px #45e563;
 }
 
 .nav-item:active{
@@ -167,6 +170,7 @@ table {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
+	border-spacing:0px;
 }
 
 .table-1{
@@ -174,41 +178,51 @@ table {
 	border-spacing:0px;
 }
 
-.table-raw{
-	border: 1px solid rgb(161, 161, 161);
-	border-radius: 4px;
-	padding: 5px;
-}
-
-.col{
-	border: 1px solid rgb(221, 221, 221);
+.tb-head{
+	border-bottom: .1px solid rgb(255, 209, 192);
 	border-radius: 1px;
-	padding:3px 5px 5px 15px;
-	text-align:start;
+	padding:10px;
+	background-color: #ffffff;
+	text-align:center;
 	font-size: var(--font-size-text);
 	font-weight: 700;
 }
+
+
+.col{
+	padding:8px;
+	text-align:center;
+	font-size: var(--font-size-text);
+	font-weight: 500;
+}
 .col:hover{
-	background-color: #e4e4e4;
+	box-shadow: inset 1px 1px 1px #fff1f1,
+	            inset 1px 1px 2px #ffffff,
+            	  inset -1px -1px 2px #ffffff,
+               rgba(0, 0, 0, 0.1) -4px 9px 25px -6px,
+	            inset -1px -1px 1px #fff1f1;
 }
 
 button{
-	color: rgb(255, 255, 255);
-	background-color: #666666;
+	color: rgb(0, 0, 0);
+	background-color: #ffffff;
 	font-size: medium;
-        border-radius: 5px;
 	border: none;
-	padding: 5px 10px;
-        box-shadow: 0 10px 6px -6px rgb(56, 56, 56);
-	-webkit-box-shadow: 0 10px 6px -6px #777;
-	-moz-box-shadow: 0 10px 6px -6px #777;
+	border-radius: 7px;
+	padding: 3px 10px;	
+	-moz-box-shadow:  1px 1px 2px #e3d6d6,
+	-1px -1px 2px #fee9e9;
+	-webkit-box-shadow:  1px 1px 2px #e3d6d6,
+	-1px -1px 2px #fee9e9;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
 	
 }
 
 button:hover{
-	background-color:rgb(245, 236, 236);
-	color:rgb(20, 10, 10);
+	background-color:rgb(0, 103, 26);
 	cursor: pointer;
+	color: white !important;
 }
 
 button:active{
@@ -216,12 +230,20 @@ button:active{
 	color:rgb(255, 255, 255);
 }
 
+
+.dawnload-button{
+	font-size: .80rem !important;
+}
+
 .active-button{
 	background-color: #004b00;
+	color: white
+
 }
 
 .delete-button{
 	background-color:#c21451;
+	color: white;
 }
 
 
@@ -231,28 +253,54 @@ button:active{
 	width:90%;
 	margin:auto;
 	padding:20px 10px 3px 10px;
-	font-weight: 600;
+	font-size: var(--font-size-title-sm);
+	font-weight: 400;
 }
+
+select{
+	padding:15px;
+	border-radius:5px;
+	font-size: var(--font-size-text);
+}
+
+
+label{
+	padding: 5px 0px !important;
+}
+
 
 .form-control{
-	padding:10px 10px 10px 5px;
+	padding:15px;
 	margin:1px;
+	font-size: var(--font-size-text);
 }
 
+
+.shadow{
+	border: .01px solid rgb(255, 207, 207);
+	border-radius:5px;
+	box-shadow:  5px 5px 10px #e3d6d6,
+             -5px -5px 10px #ffffff;
+
+}
+
+
+.shadow:focus{
+	outline: none;
+	border-radius:5px;
+	box-shadow:  0px 0px 0px 1px #ffc5c5;
+             
+}
+
+
 .submit-button{
-	margin: 15px 5px 20px 55px;
+	margin: 15px 5px 20px 75px;
+	padding: 8px 12px;
+	color:#ffffff;
 	background-color:green;
 }
 
-.tb-head{
-	border: 1px solid rgb(221, 221, 221);
-	border-radius: 1px;
-	padding:3px 5px 5px 15px;
-	background-color: #ffffff;
-	text-align:start;
-	font-size: var(--font-size-text);
-	font-weight: 700;
-}
+
 
 .btn {
 	color:black;
@@ -267,7 +315,7 @@ button:active{
 	background-color:green;
 	width:90px;
 	margin:10px 0px 10px 10px;
-	padding:10px;
+	padding:10px !important;
 	color:white;
 	text-align:center;
 }
@@ -275,13 +323,11 @@ button:active{
 .re-inp{
   width:130px;
   height:40px;
+  padding: 5px;
   margin:10px 10px 10px 0px;
 }
 
-select{
-	padding:10px;
-	border-radius:5px;
-}
+
 
 
 .logbody{
@@ -312,7 +358,7 @@ select{
 .log-head{
 	font-weight:700;
 	color:rgb(12, 12, 53);
-	padding:20px 10px 0px 35px;
+	padding:20px 20px 0px 20px;
 }
 .forhed{
 	padding-top:0px;
@@ -321,7 +367,8 @@ select{
 .log-button{
 	padding:6px;
 	margin:10px 20px 20px 25px;
-	background-color: rgb(26, 26, 26)
+	background-color: rgb(26, 26, 26);
+	color:white
 }
 
 .log-error{
@@ -329,7 +376,9 @@ select{
 	color:red;
 }
 
-
+.user_name{
+	font-weight:600;
+}
 
 
 .model{
@@ -399,7 +448,7 @@ select{
 /* BEM Table */
 
 .table {
-	margin-top: 1rem;
+	margin: .1rem;
 }
 
 .table--success .table__thead {
@@ -433,7 +482,7 @@ select{
 
 .table th,
 .table td {
-	padding: 1.5rem 2rem;
+	padding: .80rem 2rem;
 	width: 25%;
 	max-width: 25%;
 }
@@ -546,4 +595,28 @@ select{
 
 .text-secondary {
 	color: var(--font-color-secondary);
+}
+
+
+
+.pagination{
+	display: flex;
+	justify-content: center;
+	margin: 10px 0px;
+	box-shadow: inset -5px -5px 10px #fff8f8,
+            inset 5px 5px 10px #ffffff;
+	padding: 10px;
+	
+}
+
+
+.pagination-num{
+	font-size: var(--font-size-title-md);
+	margin-top: 5px;
+}
+
+.pagination-button{
+	font-size: large;
+  margin: 0px 10px;
+  padding: 8px 14px;
 }

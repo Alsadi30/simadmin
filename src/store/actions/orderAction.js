@@ -1,117 +1,104 @@
 import axios from 'axios'
 import Types from './type'
 import URL from '../serverUrl'
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'
 
-
-export const getNonAcOrder = () => (dispatch) => {
-  axios.get(`${URL}/api/order/nonac`, )
-    .then(res => {
-          console.log(res.data)
-            dispatch({
-                type: Types.SET_NONACORDER,
-              payload: {
-                orders: res.data.orders
-              }
-           })
-        })
-      .catch(e => {
-          dispatch({
-              type: Types.ORDERS_ERROR,
-              payload: {
-              error:e.message
-               } 
-            })
-          toast.error(`${e.message}`, {
-            position: toast.POSITION.TOP_CENTER,
-            theme: "colored"
-          });
-          
-       })
-}
-
-
-export const ordersById = (userid) => (dispatch) => {
-  axios.get(`${URL}/api/order/${userid}`)
+export const getNonAcOrder = () => dispatch => {
+  axios
+    .get(`${URL}/api/order/nonac`)
     .then(res => {
       dispatch({
-        type:Types.SET_ORDER,
+        type: Types.SET_NONACORDER,
         payload: {
-          orders:res.data.orders
+          orders: res.data.orders
         }
       })
-     
     })
     .catch(e => {
       dispatch({
-        type:Types.ORDERS_ERROR,
+        type: Types.ORDERS_ERROR,
         payload: {
-          error:e.message
+          error: e.message
         }
       })
       toast.error(`${e.message}`, {
         position: toast.POSITION.TOP_CENTER,
-        theme: "colored"
-      });
-  })
-
+        theme: 'colored'
+      })
+    })
 }
 
-
-
-export const updateOrderAcStatue = (id) => (dispatch) => {
-  axios.post(`${URL}/api/order/update/${id}`)
+export const ordersById = userid => dispatch => {
+  axios
+    .get(`${URL}/api/order/${userid}`)
     .then(res => {
-        console.log(res.data)
-          dispatch({
-              type: Types.UPDATE_ORDER_AC_STATUS,
-              payload: { order:id }
-         })
-
-         toast.success("Order Status Updated Successfully !", {
-          position: toast.POSITION.TOP_CENTER
-        });
-      
+      dispatch({
+        type: Types.SET_ORDER,
+        payload: {
+          orders: res.data.orders
+        }
       })
-      .catch(e => {
-          console.log(e.message)
-          dispatch({
-              type:Types.ORDERS_ERROR,
-              payload:{
-                  error:e.message
-              }
-          })
-          toast.error(`${e.message}`, {
-            position: toast.POSITION.TOP_CENTER,
-            theme: "colored"
-          });
-     })
-
+    })
+    .catch(e => {
+      dispatch({
+        type: Types.ORDERS_ERROR,
+        payload: {
+          error: e.message
+        }
+      })
+      toast.error(`${e.message}`, {
+        position: toast.POSITION.TOP_CENTER,
+        theme: 'colored'
+      })
+    })
 }
 
-
-
-
-export const deleteOrder  = (id) => (dispatch) => {
-  axios.delete(`${URL}/api/order/delete/${id}`)
+export const updateOrderAcStatue = id => dispatch => {
+  axios
+    .post(`${URL}/api/order/update/${id}`)
     .then(res => {
-         toast.success("Order Deleted Successfully !", {
-          position: toast.POSITION.TOP_CENTER
-        });
-      
+      console.log(res.data)
+      dispatch({
+        type: Types.UPDATE_ORDER_AC_STATUS,
+        payload: { order: id }
       })
-      .catch(e => {
-          console.log(e.message)
-          dispatch({
-              type:Types.ORDERS_ERROR,
-              payload:{
-                  error:e.message
-              }
-          })
-          toast.error(`${e.message}`, {
-            position: toast.POSITION.TOP_CENTER,
-            theme: "colored"
-          });
-     })
 
+      toast.success('Order Status Updated Successfully !', {
+        position: toast.POSITION.TOP_CENTER
+      })
+    })
+    .catch(e => {
+      dispatch({
+        type: Types.ORDERS_ERROR,
+        payload: {
+          error: e.message
+        }
+      })
+      toast.error(`${e.message}`, {
+        position: toast.POSITION.TOP_CENTER,
+        theme: 'colored'
+      })
+    })
+}
+
+export const deleteOrder = id => dispatch => {
+  axios
+    .delete(`${URL}/api/order/delete/${id}`)
+    .then(res => {
+      toast.success('Order Deleted Successfully !', {
+        position: toast.POSITION.TOP_CENTER
+      })
+    })
+    .catch(e => {
+      dispatch({
+        type: Types.ORDERS_ERROR,
+        payload: {
+          error: e.message
+        }
+      })
+      toast.error(`${e.message}`, {
+        position: toast.POSITION.TOP_CENTER,
+        theme: 'colored'
+      })
+    })
 }
